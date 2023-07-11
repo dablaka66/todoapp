@@ -3,22 +3,27 @@ import { useState } from "react";
 function NewTodoForm ({addTask}) {
   const initialState = {
     id: "",
-    task: ""
+    nameTask: ""
   };
   const  [task,setTask] =useState(initialState);
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(task.id,task.taskask); //ask1
+    const { id , nameTask} = e.target
+    console.log(' task in side of handle submit before addtask: ', task);
+
+    addTask(task); //ask1
     setTask(initialState);
-    console.log('task: ', task);
+    console.log('task dentro de handle submit: ', task);
   };
   const handleChange = (e) => {
     const {name,value} = e.target;
     console.log('name: ', name);
+    console.log('value: ', value);
 
     setTask(task => ({
       ...task,
-      [name]:value
+      [name]:value,
+      ["id"]:value
     }));
     console.log('task: ', task);
     };
@@ -28,7 +33,7 @@ function NewTodoForm ({addTask}) {
     <input type="text"
      id="task"
      placeholder="New task"
-     name="task"
+     name="nameTask"
      onChange={handleChange}
      />
      <button>Add task</button>
@@ -36,4 +41,4 @@ function NewTodoForm ({addTask}) {
 }
 
 export default NewTodoForm;
-//ask1 : how to call thid function if the function is in the parent component?
+//ask1 : how to call the function if the function is in the parent component?

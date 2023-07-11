@@ -1,13 +1,13 @@
 
-function Todo (id,task,deleteTask) {
+function Todo (id,nameTask,deleteTask) {
     console.log('deleteTask: ', deleteTask);
-    console.log('task: ', task);
+    console.log('task: ', ntask);
     console.log('id: ', id);
 
     return (
         <li className="task" 
             id={id} >
-                `${task}`
+                `${nameTask}`
             <button onClick={deleteTask} >X</button>
         </li>
     );

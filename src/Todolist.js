@@ -18,17 +18,18 @@ function TodoList() {
     return tasklist.length + 1;
   };
   
-  const tasks = 
-  tasklist.map((id,task)=>{
+const tasks = () => {
+  tasklist.map((id,nameTask)=>{
     console.log('ingreso a tasks id: ', id);
-    console.log('task DESDE TASKS: ', task);
+    console.log('task DESDE TASKS: ', task); 
     return (
       <Todo 
       id={id}
-      task={task}
+      task={nameTask}
       deleteTask={deleteTask} />
     )
-  });
+    
+  })};
   return(
   <div>
     <NewTodoForm addTask={addTask} />
